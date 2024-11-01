@@ -1,0 +1,11 @@
+<app-header></app-header>
+<main>
+    <ul id="users">
+        @for (user of users$ | async; track user.id) {
+        <li>
+            <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
+        </li>
+        }
+    </ul>
+    
+</main>
