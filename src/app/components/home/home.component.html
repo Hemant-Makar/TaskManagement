@@ -7,5 +7,7 @@
         </li>
         }
     </ul>
-    
+    @if (selectedUser) {
+        <app-tasks [user]="selectedUser"></app-tasks>
+    }
 </main>
