@@ -1,1 +1,21 @@
-<p>tasks works!</p>
+<section id="tasks">
+    <header>
+        <h2>{{ user().name }}</h2>
+        <menu>
+            <button (click)="onOpenAddTaskDialog()">Add Task</button>
+        </menu>
+    </header>
+    <ul>
+        @if (addTaskDialogState === 1) {
+            <app-new-task 
+                [userId]="user().id" 
+                (close)="onCloseAddTask()">
+            </app-new-task>
+        } 
+        @for (task of getUserTasks; track task.id) {
+            <li>
+                <app-task [task]="task"></app-task>
+            </li>
+        }
+    </ul>
+</section>
